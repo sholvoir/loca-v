@@ -14,3 +14,13 @@ if __name__ == '__main__':
                 print(row_in[0], row_in[1], '\t'.join(row_out), sep='\t', file=merge_file)
 
 
+if '__main__' == __name__:
+    chromesome_numbers = []
+    for chr_num in range(1, 23):
+        chromesome_numbers.append(str(chr_num))
+    chromesome_numbers.extend('XY')
+    with open("merged.loca", "w") as merge_file:
+        sample_ids = {}
+        for chr_num in chromesome_numbers:
+            with open("chr" + x + "_aswphased") as loca_in_file:
+                loca_in_file.readline().split(',')
