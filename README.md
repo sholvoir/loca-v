@@ -1,21 +1,21 @@
 # LocaV
 
 LocaV is a visualization tool of ancestral analytics result data.
-Which accept ancesstral analytics result data file (csv/tsv format) as input and draws images of each sample.
-The images use colors to present the ancestral soure of the gene snippet.
+Which accept ancestral analytics result data file (csv/tsv format) as input and draws images of each sample.
+The images use colors to present the ancestral source of the gene snippet.
 
 ## Usage
 
 1. Please make sure the **JRE 8 or above** be installed well.
-2. Download the software from http://4dgenome.com/download/locav.zip and extract it to a folder.
+2. Download the software from <http://4dgenome.com/download/locav.zip> and extract it to a folder.
 3. The executable scripts are in the "bin" folder, you can add this directory to your PATH or use full path to run it.
 4. Run the software with the following command:
     ```bash
     [path/]plotp|plotc [options]
     ```
-    "plotp" is used to plot whole genome image of sigle person.
-    "plotc" is used to ploting a single chromosome of multi people for comparing.
-5. If you want to get more information of *options* of the command line, use followinng command to get help:
+    "plotp" is used to plot whole genome image of single person.
+    "plotc" is used to plotting a single chromosome of multi people for comparing.
+5. If you want to get more information of *options* of the command line, use following command to get help:
     ```bash
     [path]plotp|plotc --help
     ```
@@ -24,7 +24,7 @@ The images use colors to present the ancestral soure of the gene snippet.
 
 LocaV requires a group of csv/tsv format files as input which contain ancestral analytics result data for each chromosome, such as chr1.loca, chr2.loca ... chr22.loca, chrX.loca, chrY.loca.
 
-Each .loca file must include a position column which indicate the postion of loci of a SNP in chromsome and several SAMPLEID_A and SAMPLEID_B colomns which indicate where the sample's SNP come from and the value of the columns should be a single character. The name of input file prefer *chrX.loca* like above list otherwise you need extra config in command line.
+Each .loca file must include a position column which indicate the position of loci of a SNP in chromosome and several SAMPLE_ID_A and SAMPLE_ID_B columns which indicate where the sample's SNP come from and the value of the columns should be a single character. The name of input file prefer *chrX.loca* like above list otherwise you need extra config in command line.
 
 Here is an example file (chr1.loca):
 
