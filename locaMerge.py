@@ -1,26 +1,18 @@
 #!/usr/bin/env python
+import re
 
 if __name__ == '__main__':
-    filename = []
-    for x in range(1,23):
-        filename.append(str(x))
-    filename.extend("XY")
-    for x in filename:
-        with open("data/chr" + x + "_aswphased") as loca_in_file, open("data/chr" + x + ".csv") as loca_out_file, open ("data/chr" + x + ".loca", "w") as merge_file:
-            print(loca_in_file.readline(), file=merge_file, end='')
+    chromesome_numbers = []
+    for chr_num in range(1,23):
+        chromesome_numbers.append(str(chr_num))
+    chromesome_numbers.extend("XY")
+    for chr_num in chromesome_numbers:
+        chr_name = "chr" + chr_num
+        with open(chr_name + "_aswphased") as loca_in_file, open(chr_name + ".csv") as loca_out_file, open (chr_name + ".loca", "w") as merge_file:
+            column_names = loca_in_file.readline().strip().split()
+            column_names.insert(2, 'chromosome')
+            print(column_names, sep='\t', file=merge_file)
             for (line_in, line_out) in zip(loca_in_file, loca_out_file):
                 row_in = line_in.strip().split()
                 row_out = line_out.strip().split(',')
-                print(row_in[0], row_in[1], '\t'.join(row_out), sep='\t', file=merge_file)
-
-
-if '__main__' == __name__:
-    chromesome_numbers = []
-    for chr_num in range(1, 23):
-        chromesome_numbers.append(str(chr_num))
-    chromesome_numbers.extend('XY')
-    with open("merged.loca", "w") as merge_file:
-        sample_ids = {}
-        for chr_num in chromesome_numbers:
-            with open("chr" + x + "_aswphased") as loca_in_file:
-                loca_in_file.readline().split(',')
+                print(row_in[0], row_in[1], chr_name, '\t'.join(row_out), sep='\t', file=merge_file)
